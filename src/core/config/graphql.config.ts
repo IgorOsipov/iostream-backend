@@ -5,13 +5,13 @@ import { join } from 'path';
 import { isDev } from '@/src/shared/utils/is-dev.util';
 
 export const getGraphQLConfig: (
-	configService: ConfigService
+  configService: ConfigService
 ) => ApolloDriverConfig = (configService) => {
-	return {
-		playground: isDev(configService),
-		path: configService.getOrThrow<string>('GRAPHQL_PREFIX'),
-		autoSchemaFile: join(process.cwd(), 'src/core/graphql/schema.gql'),
-		sortSchema: true,
-		context: ({ req, res }) => ({ req, res })
-	};
+  return {
+    playground: isDev(configService),
+    path: configService.getOrThrow<string>('GRAPHQL_PREFIX'),
+    autoSchemaFile: join(process.cwd(), 'src/core/graphql/schema.gql'),
+    sortSchema: true,
+    context: ({ req, res }) => ({ req, res })
+  };
 };
