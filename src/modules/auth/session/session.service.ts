@@ -25,8 +25,20 @@ export class SessionService {
     const user = await this.prismaService.user.findFirst({
       where: {
         OR: [{ username: { equals: login } }, { email: { equals: login } }]
+      },
+      select: {
+        id: true,
+        email: true,
+        username: true,
+        password: true,
+        displayName: true,
+        avatar: true,
+        bio: true,
+        createdAt: true,
+        updatedAt: true
       }
     });
+
     if (!user) {
       throw new NotFoundException('User not found');
     }
@@ -35,6 +47,8 @@ export class SessionService {
     if (!isValidPassword) {
       throw new UnauthorizedException('Invalid password');
     }
+
+    const { password: _, ...userWithoutPassword } = user;
 
     return new Promise((resolve, reject) => {
       req.session.createdAt = new Date();
@@ -46,7 +60,7 @@ export class SessionService {
             new InternalServerErrorException('Failed to save session')
           );
         }
-        resolve({ user });
+        resolve({ user: userWithoutPassword });
       });
     });
   }

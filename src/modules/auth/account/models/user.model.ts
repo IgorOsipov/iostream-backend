@@ -18,10 +18,10 @@ export class UserModel {
   public displayName: string;
 
   @Field(() => String, { nullable: true })
-  public avatar: string;
+  public avatar?: string | null;
 
   @Field(() => String, { nullable: true })
-  public bio: string;
+  public bio?: string | null;
 
   @Field(() => Date)
   public createdAt: Date;

@@ -18,14 +18,18 @@ input LoginInput {
   password: String!
 }
 
+type LoginModel {
+  user: UserModel!
+}
+
 type Mutation {
   createUser(data: CreateUserInput!): Boolean!
-  login(input: LoginInput!): UserModel!
+  login(input: LoginInput!): LoginModel!
   logout: Boolean!
 }
 
 type Query {
-  findAllUsers: [UserModel!]!
+  findProfile: UserModel!
 }
 
 type UserModel {
