@@ -37,10 +37,10 @@ export function getSessionMetadata(
       type: device.device?.type ?? 'Unknown'
     },
     location: {
-      country: countries.getName(location?.country || 'US', 'en') || 'Unknown',
-      city: location?.city || 'Unknown',
-      latitude: location?.ll?.[0] || 0,
-      longitude: location?.ll?.[1] || 0
+      country: countries.getName(location?.country ?? 'US', 'en') ?? 'Unknown',
+      city: location?.city ?? 'Unknown',
+      latitude: location?.ll?.[0] ?? 0,
+      longitude: location?.ll?.[1] ?? 0
     }
   };
 }
