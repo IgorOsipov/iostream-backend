@@ -30,7 +30,7 @@ export class SessionService {
       throw new UnauthorizedException('User not found');
     }
 
-    const keys = (await this.redisService.get('*')) || [];
+    const keys = await this.redisService.keys('*');
     const userSessions: Array<SessionData & { id: string }> = [];
     for (const key of keys) {
       const sessionData = await this.redisService.get(key);
@@ -46,13 +46,13 @@ export class SessionService {
     // @ts-ignore
     userSessions.sort((a, b) => b.createdAt - a.createdAt);
 
-    return userSessions.filter((session) => session.id === req.session.id);
+    return userSessions.filter((session) => session.id !== req.session.id);
   }
 
   public async findCurrent(req: Request) {
     const sessionId = req.session.id;
     const sessionData = await this.redisService.get(
-      `${this.configService.getOrThrow<string>('SESSION_FOLDER')}:${sessionId}`
+      `${this.configService.getOrThrow<string>('SESSION_FOLDER')}${sessionId}`
     );
     if (!sessionData) {
       throw new NotFoundException('Session not found');

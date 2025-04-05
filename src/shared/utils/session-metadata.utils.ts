@@ -15,7 +15,7 @@ export function getSessionMetadata(
   userAgent: string
 ): SessionMetadata {
   const ip = IS_DEV_ENV
-    ? '127.0.0.1'
+    ? '173.166.164.121'
     : Array.isArray(req.headers['cf-connection-ip'])
       ? req.headers['cf-connection-ip'][0]
       : (req.headers['cf-connecting-ip'] as string) ||
@@ -25,14 +25,16 @@ export function getSessionMetadata(
         'Unknown';
 
   const location = lookup(ip);
-  const device = new DeviceDetector().parse(userAgent);
+  const device = new DeviceDetector().parse(
+    userAgent || req.headers['user-agent'] || 'Unknown'
+  );
 
   return {
     ip,
     device: {
-      browser: device.client?.name || 'Unknown',
-      os: device.os?.name || 'Unknown',
-      type: device.device?.type || 'Unknown'
+      browser: device.client?.name ?? 'Unknown',
+      os: device.os?.name ?? 'Unknown',
+      type: device.device?.type ?? 'Unknown'
     },
     location: {
       country: countries.getName(location?.country || 'US', 'en') || 'Unknown',
