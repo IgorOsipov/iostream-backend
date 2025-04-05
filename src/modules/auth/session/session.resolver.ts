@@ -1,5 +1,6 @@
 import { Args, Context, Mutation, Resolver } from '@nestjs/graphql';
 
+import { UserAgent } from '@/src/shared/decorators/user-agent.decorator';
 import { CqlContext } from '@/src/shared/types/gql-context.types';
 
 import { LoginInput } from './inputs/login.input';
@@ -13,9 +14,10 @@ export class SessionResolver {
   @Mutation(() => LoginModel, { name: 'login' })
   public async login(
     @Context() { req }: CqlContext,
-    @Args('input') input: LoginInput
+    @Args('input') input: LoginInput,
+    @UserAgent() userAgent: string
   ) {
-    return this.sessionService.login(req, input);
+    return this.sessionService.login(req, input, userAgent);
   }
 
   @Mutation(() => Boolean, { name: 'logout' })
