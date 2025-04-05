@@ -105,7 +105,7 @@ export const ms: (str: StringValue) => number = (str) => {
       return n;
     default:
       throw new Error(
-        `Ошибка: единица времени ${type} была распознана, но не существует соответствующего случая. Пожалуйста, проверьте введенные данные.`
+        `Error: time unit ${type} was recognized but no corresponding case exists. Please check the input data.`
       );
   }
 };
