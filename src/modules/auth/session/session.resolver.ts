@@ -40,7 +40,6 @@ export class SessionResolver {
     return this.sessionService.logout(req);
   }
 
-  @Authorization()
   @Mutation(() => Boolean, { name: 'clearSessionCookie' })
   public async clearSession(@Context() { req }: CqlContext) {
     return this.sessionService.clearSessions(req);
