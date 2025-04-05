@@ -1,7 +1,9 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
+import type { User } from '@/prisma/generated';
+
 @ObjectType()
-export class UserModel {
+export class UserModel implements User {
   @Field(() => ID)
   public id: string;
 
@@ -18,10 +20,10 @@ export class UserModel {
   public displayName: string;
 
   @Field(() => String, { nullable: true })
-  public avatar?: string | null;
+  public avatar: string | null;
 
   @Field(() => String, { nullable: true })
-  public bio?: string | null;
+  public bio: string | null;
 
   @Field(() => Date)
   public createdAt: Date;
