@@ -1,7 +1,7 @@
 import {
+  BadRequestException,
   ConflictException,
   Injectable,
-  InternalServerErrorException,
   NotFoundException,
   UnauthorizedException
 } from '@nestjs/common';
@@ -15,6 +15,8 @@ import { RedisService } from '@/src/core/redis/redis.service';
 import { getSessionMetadata } from '@/src/shared/utils/session-metadata.utils';
 import { destroySession, saveSession } from '@/src/shared/utils/session.util';
 
+import { VerificationService } from '../verification/verification.service';
+
 import { LoginInput } from './inputs/login.input';
 
 @Injectable()
@@ -22,7 +24,8 @@ export class SessionService {
   public constructor(
     private readonly prismaService: PrismaService,
     private readonly redisService: RedisService,
-    private readonly configService: ConfigService
+    private readonly configService: ConfigService,
+    private readonly verificationService: VerificationService
   ) {}
 
   public async findByUser(req: Request) {
@@ -93,6 +96,13 @@ export class SessionService {
     const isValidPassword = await verify(user.password, password);
     if (!isValidPassword) {
       throw new UnauthorizedException('Invalid password');
+    }
+
+    if (!user.isEmailVerified) {
+      await this.verificationService.sendVerificationToken(user);
+      throw new BadRequestException(
+        'Email not verified. Please check your email for verification.'
+      );
     }
 
     const metadata = getSessionMetadata(req, userAgent);
