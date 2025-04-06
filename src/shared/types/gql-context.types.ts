@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 
-export interface CqlContext {
+export interface GqlContext {
   req: Request;
   res: Response;
 }
