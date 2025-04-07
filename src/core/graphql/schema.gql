@@ -32,7 +32,17 @@ input LoginInput {
 }
 
 type LoginModel {
-  user: UserModel!
+  avatar: String
+  bio: String
+  createdAt: DateTime!
+  displayName: String!
+  email: String!
+  id: ID!
+  isEmailVerified: Boolean!
+  isVerified: Boolean!
+  password: String!
+  updatedAt: DateTime!
+  username: String!
 }
 
 type Mutation {

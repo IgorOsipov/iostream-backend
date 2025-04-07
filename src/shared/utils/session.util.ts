@@ -16,14 +16,13 @@ export function saveSession(
     req.session.userId = user.id;
     req.session.metadata = metadata;
 
-    const { password: _, ...userWithoutPassword } = user;
     req.session.save((err) => {
       if (err) {
         return reject(
           new InternalServerErrorException('Failed to save session')
         );
       }
-      resolve({ user: userWithoutPassword });
+      resolve(user);
     });
   });
 }
