@@ -22,7 +22,7 @@ export function saveSession(
           new InternalServerErrorException('Failed to save session')
         );
       }
-      resolve(user);
+      resolve({ user });
     });
   });
 }
