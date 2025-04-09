@@ -11,6 +11,8 @@ import { TotpModule } from '../modules/auth/totp/totp.module';
 import { VerificationModule } from '../modules/auth/verification/verification.module';
 import { CronModule } from '../modules/cron/cron.module';
 import { MailModule } from '../modules/libs/mail/mail.module';
+import { StorageModule } from '../modules/libs/storage/storage.module';
+import { ProfileModule } from '../profile/profile.module';
 import { IS_DEV_ENV } from '../shared/utils/is-dev.util';
 
 import { getGraphQLConfig } from './config/graphql.config';
@@ -30,8 +32,10 @@ import { RedisModule } from './redis/redis.module';
     RedisModule,
     MailModule,
     CronModule,
+    StorageModule,
     AccountModule,
     SessionModule,
+    ProfileModule,
     VerificationModule,
     PasswordRecoveryModule,
     TotpModule,

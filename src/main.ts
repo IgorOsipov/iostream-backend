@@ -4,6 +4,7 @@ import { NestFactory } from '@nestjs/core';
 import { RedisStore } from 'connect-redis';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
+import { graphqlUploadExpress } from 'graphql-upload-ts';
 
 import { CoreModule } from './core/core.module';
 import { RedisService } from './core/redis/redis.service';
@@ -36,6 +37,8 @@ async function bootstrap() {
       })
     })
   );
+  app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 1 }));
+
   app.enableCors({
     origin: config.getOrThrow<string>('ALLOWED_ORIGIN'),
     credentials: true,
@@ -44,4 +47,7 @@ async function bootstrap() {
 
   await app.listen(config.getOrThrow<number>('APPLICATION_PORT'));
 }
-bootstrap();
+bootstrap().catch(err => {
+  console.error(err);
+  process.exit(1);
+});
