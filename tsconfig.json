@@ -23,5 +23,6 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "jsx": "react"
-  }
+  },
+  "include": ["src/**/*", "eslint.config.mjs"]
 }
