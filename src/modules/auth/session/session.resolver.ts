@@ -7,7 +7,6 @@ import { GqlContext } from '@/src/shared/types/gql-context.types';
 import { AuthModel } from '../account/models/auth.model';
 
 import { LoginInput } from './inputs/login.input';
-import { LoginModel } from './models/login.model';
 import { SessionModel } from './models/session.model';
 import { SessionService } from './session.service';
 
@@ -43,7 +42,7 @@ export class SessionResolver {
   }
 
   @Mutation(() => Boolean, { name: 'clearSessionCookie' })
-  public async clearSession(@Context() { req }: GqlContext) {
+  public clearSession(@Context() { req }: GqlContext) {
     return this.sessionService.clearSessions(req);
   }
   @Authorization()

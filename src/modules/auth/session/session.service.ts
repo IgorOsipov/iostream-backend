@@ -40,7 +40,7 @@ export class SessionService {
     for (const key of keys) {
       const sessionData = await this.redisService.get(key);
       if (sessionData) {
-        const session: SessionData = JSON.parse(sessionData);
+        const session = JSON.parse(sessionData) as SessionData;
 
         if (session.userId === userId) {
           userSessions.push({ ...session, id: key.split(':')[1] });
@@ -48,10 +48,10 @@ export class SessionService {
       }
     }
 
-    // @ts-ignore
+    // @ts-expect-error createdAt is dynamically added to session
     userSessions.sort((a, b) => b.createdAt - a.createdAt);
 
-    return userSessions.filter((session) => session.id !== req.session.id);
+    return userSessions.filter(session => session.id !== req.session.id);
   }
 
   public async findCurrent(req: Request) {
@@ -63,7 +63,7 @@ export class SessionService {
       throw new NotFoundException('Session not found');
     }
 
-    const session: SessionData = JSON.parse(sessionData);
+    const session = JSON.parse(sessionData) as SessionData;
 
     return { ...session, id: sessionId };
   }
@@ -122,7 +122,7 @@ export class SessionService {
     return destroySession(req, this.configService);
   }
 
-  public async clearSessions(req: Request) {
+  public clearSessions(req: Request) {
     req.res?.clearCookie(this.configService.getOrThrow<string>('SESSION_NAME'));
     return true;
   }
