@@ -38,29 +38,18 @@ export class ProfileService {
 
     const fileName = `/chanels/${user.username}.webp`;
 
-    if (file.fieldName && file.fieldName.endsWith('.gif')) {
-      const processedBuffer = await sharp(buffer, { animated: true })
-        .resize(512, 512)
-        .webp()
-        .toBuffer();
+    const processedBuffer = await sharp(buffer, {
+      animated: file.fieldName?.endsWith('.gif') ? true : false
+    })
+      .resize(512, 512)
+      .webp()
+      .toBuffer();
 
-      await this.storageService.uploadFile(
-        processedBuffer,
-        fileName,
-        'image/webp'
-      );
-    } else {
-      const processedBuffer = await sharp(buffer)
-        .resize(512, 512)
-        .webp()
-        .toBuffer();
-
-      await this.storageService.uploadFile(
-        processedBuffer,
-        fileName,
-        'image/webp'
-      );
-    }
+    await this.storageService.uploadFile(
+      processedBuffer,
+      fileName,
+      'image/webp'
+    );
 
     await this.prismaService.user.update({
       where: { id: user.id },
