@@ -34,6 +34,33 @@ export class StreamService {
     return streams;
   }
 
+  public async findRandom() {
+    const total = await this.prismaService.stream.count({
+      where: {
+        user: { isDeactivated: false }
+      }
+    });
+
+    const randomIndexes = new Set<number>();
+    while (randomIndexes.size < (total > 4 ? 4 : total)) {
+      const randomIndex = Math.floor(Math.random() * total);
+      randomIndexes.add(randomIndex);
+    }
+
+    const streams = await this.prismaService.stream.findMany({
+      where: {
+        user: { isDeactivated: false }
+      },
+      include: {
+        user: true
+      },
+      skip: 0,
+      take: total
+    });
+
+    return Array.from(randomIndexes).map(index => streams[index]);
+  }
+
   private findBySearchTermFilter(searchTerm: string): Prisma.StreamWhereInput {
     return {
       OR: [

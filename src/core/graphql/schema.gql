@@ -103,6 +103,7 @@ type Query {
   findAllStreams(filters: FiltersInput!): [StreamModel!]!
   findCurrentSession: SessionModel!
   findProfile: UserModel!
+  findRandomStreams: [StreamModel!]!
   findSessionsByUser: [SessionModel!]!
   findSocialLinks: [SocialLinkModel!]!
   generateTotpSecret: TotpModel!
