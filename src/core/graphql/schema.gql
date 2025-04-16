@@ -82,8 +82,9 @@ type Mutation {
   removeSocialLink(id: String!): Boolean!
   reorderSocialLinks(list: [SocialLinkOrderInput!]!): Boolean!
   resetPassword(data: ResetPasswordInput!): Boolean!
+  sendVerificationToken: Boolean!
   updateSocialLink(data: SocialLinkInput!, id: String!): Boolean!
-  verifyAccount(data: VerificationInput!): UserModel!
+  verifyAccount(data: VerificationInput!): AuthModel!
 }
 
 input NewPasswordInput {

@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import type { User } from '@/prisma/generated';
-import { SocialLinkModel } from '@/src/profile/models/social-link.model';
+import { SocialLinkModel } from '@/src/modules/auth/profile/models/social-link.model';
 
 @ObjectType()
 export class UserModel implements User {
