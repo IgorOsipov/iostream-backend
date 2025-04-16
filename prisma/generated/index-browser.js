@@ -148,7 +148,7 @@ exports.Prisma.SocialLinkScalarFieldEnum = {
 exports.Prisma.StreamScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  thumbnainUrl: 'thumbnainUrl',
+  thumbnailUrl: 'thumbnailUrl',
   ingressId: 'ingressId',
   serverUrl: 'serverUrl',
   streamKey: 'streamKey',

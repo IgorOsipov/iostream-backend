@@ -3600,7 +3600,7 @@ export namespace Prisma {
   export type StreamMinAggregateOutputType = {
     id: string | null
     title: string | null
-    thumbnainUrl: string | null
+    thumbnailUrl: string | null
     ingressId: string | null
     serverUrl: string | null
     streamKey: string | null
@@ -3613,7 +3613,7 @@ export namespace Prisma {
   export type StreamMaxAggregateOutputType = {
     id: string | null
     title: string | null
-    thumbnainUrl: string | null
+    thumbnailUrl: string | null
     ingressId: string | null
     serverUrl: string | null
     streamKey: string | null
@@ -3626,7 +3626,7 @@ export namespace Prisma {
   export type StreamCountAggregateOutputType = {
     id: number
     title: number
-    thumbnainUrl: number
+    thumbnailUrl: number
     ingressId: number
     serverUrl: number
     streamKey: number
@@ -3641,7 +3641,7 @@ export namespace Prisma {
   export type StreamMinAggregateInputType = {
     id?: true
     title?: true
-    thumbnainUrl?: true
+    thumbnailUrl?: true
     ingressId?: true
     serverUrl?: true
     streamKey?: true
@@ -3654,7 +3654,7 @@ export namespace Prisma {
   export type StreamMaxAggregateInputType = {
     id?: true
     title?: true
-    thumbnainUrl?: true
+    thumbnailUrl?: true
     ingressId?: true
     serverUrl?: true
     streamKey?: true
@@ -3667,7 +3667,7 @@ export namespace Prisma {
   export type StreamCountAggregateInputType = {
     id?: true
     title?: true
-    thumbnainUrl?: true
+    thumbnailUrl?: true
     ingressId?: true
     serverUrl?: true
     streamKey?: true
@@ -3753,7 +3753,7 @@ export namespace Prisma {
   export type StreamGroupByOutputType = {
     id: string
     title: string
-    thumbnainUrl: string | null
+    thumbnailUrl: string | null
     ingressId: string | null
     serverUrl: string | null
     streamKey: string | null
@@ -3783,7 +3783,7 @@ export namespace Prisma {
   export type StreamSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    thumbnainUrl?: boolean
+    thumbnailUrl?: boolean
     ingressId?: boolean
     serverUrl?: boolean
     streamKey?: boolean
@@ -3797,7 +3797,7 @@ export namespace Prisma {
   export type StreamSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    thumbnainUrl?: boolean
+    thumbnailUrl?: boolean
     ingressId?: boolean
     serverUrl?: boolean
     streamKey?: boolean
@@ -3811,7 +3811,7 @@ export namespace Prisma {
   export type StreamSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    thumbnainUrl?: boolean
+    thumbnailUrl?: boolean
     ingressId?: boolean
     serverUrl?: boolean
     streamKey?: boolean
@@ -3825,7 +3825,7 @@ export namespace Prisma {
   export type StreamSelectScalar = {
     id?: boolean
     title?: boolean
-    thumbnainUrl?: boolean
+    thumbnailUrl?: boolean
     ingressId?: boolean
     serverUrl?: boolean
     streamKey?: boolean
@@ -3835,7 +3835,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type StreamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "thumbnainUrl" | "ingressId" | "serverUrl" | "streamKey" | "isLive" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["stream"]>
+  export type StreamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "thumbnailUrl" | "ingressId" | "serverUrl" | "streamKey" | "isLive" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["stream"]>
   export type StreamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | Stream$userArgs<ExtArgs>
   }
@@ -3854,7 +3854,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       title: string
-      thumbnainUrl: string | null
+      thumbnailUrl: string | null
       ingressId: string | null
       serverUrl: string | null
       streamKey: string | null
@@ -4288,7 +4288,7 @@ export namespace Prisma {
   interface StreamFieldRefs {
     readonly id: FieldRef<"Stream", 'String'>
     readonly title: FieldRef<"Stream", 'String'>
-    readonly thumbnainUrl: FieldRef<"Stream", 'String'>
+    readonly thumbnailUrl: FieldRef<"Stream", 'String'>
     readonly ingressId: FieldRef<"Stream", 'String'>
     readonly serverUrl: FieldRef<"Stream", 'String'>
     readonly streamKey: FieldRef<"Stream", 'String'>
@@ -5883,7 +5883,7 @@ export namespace Prisma {
   export const StreamScalarFieldEnum: {
     id: 'id',
     title: 'title',
-    thumbnainUrl: 'thumbnainUrl',
+    thumbnailUrl: 'thumbnailUrl',
     ingressId: 'ingressId',
     serverUrl: 'serverUrl',
     streamKey: 'streamKey',
@@ -6202,7 +6202,7 @@ export namespace Prisma {
     NOT?: StreamWhereInput | StreamWhereInput[]
     id?: StringFilter<"Stream"> | string
     title?: StringFilter<"Stream"> | string
-    thumbnainUrl?: StringNullableFilter<"Stream"> | string | null
+    thumbnailUrl?: StringNullableFilter<"Stream"> | string | null
     ingressId?: StringNullableFilter<"Stream"> | string | null
     serverUrl?: StringNullableFilter<"Stream"> | string | null
     streamKey?: StringNullableFilter<"Stream"> | string | null
@@ -6216,7 +6216,7 @@ export namespace Prisma {
   export type StreamOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    thumbnainUrl?: SortOrderInput | SortOrder
+    thumbnailUrl?: SortOrderInput | SortOrder
     ingressId?: SortOrderInput | SortOrder
     serverUrl?: SortOrderInput | SortOrder
     streamKey?: SortOrderInput | SortOrder
@@ -6235,7 +6235,7 @@ export namespace Prisma {
     OR?: StreamWhereInput[]
     NOT?: StreamWhereInput | StreamWhereInput[]
     title?: StringFilter<"Stream"> | string
-    thumbnainUrl?: StringNullableFilter<"Stream"> | string | null
+    thumbnailUrl?: StringNullableFilter<"Stream"> | string | null
     serverUrl?: StringNullableFilter<"Stream"> | string | null
     streamKey?: StringNullableFilter<"Stream"> | string | null
     isLive?: BoolFilter<"Stream"> | boolean
@@ -6247,7 +6247,7 @@ export namespace Prisma {
   export type StreamOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    thumbnainUrl?: SortOrderInput | SortOrder
+    thumbnailUrl?: SortOrderInput | SortOrder
     ingressId?: SortOrderInput | SortOrder
     serverUrl?: SortOrderInput | SortOrder
     streamKey?: SortOrderInput | SortOrder
@@ -6266,7 +6266,7 @@ export namespace Prisma {
     NOT?: StreamScalarWhereWithAggregatesInput | StreamScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Stream"> | string
     title?: StringWithAggregatesFilter<"Stream"> | string
-    thumbnainUrl?: StringNullableWithAggregatesFilter<"Stream"> | string | null
+    thumbnailUrl?: StringNullableWithAggregatesFilter<"Stream"> | string | null
     ingressId?: StringNullableWithAggregatesFilter<"Stream"> | string | null
     serverUrl?: StringNullableWithAggregatesFilter<"Stream"> | string | null
     streamKey?: StringNullableWithAggregatesFilter<"Stream"> | string | null
@@ -6551,7 +6551,7 @@ export namespace Prisma {
   export type StreamCreateInput = {
     id?: string
     title: string
-    thumbnainUrl?: string | null
+    thumbnailUrl?: string | null
     ingressId?: string | null
     serverUrl?: string | null
     streamKey?: string | null
@@ -6564,7 +6564,7 @@ export namespace Prisma {
   export type StreamUncheckedCreateInput = {
     id?: string
     title: string
-    thumbnainUrl?: string | null
+    thumbnailUrl?: string | null
     ingressId?: string | null
     serverUrl?: string | null
     streamKey?: string | null
@@ -6577,7 +6577,7 @@ export namespace Prisma {
   export type StreamUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    thumbnainUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     ingressId?: NullableStringFieldUpdateOperationsInput | string | null
     serverUrl?: NullableStringFieldUpdateOperationsInput | string | null
     streamKey?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6590,7 +6590,7 @@ export namespace Prisma {
   export type StreamUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    thumbnainUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     ingressId?: NullableStringFieldUpdateOperationsInput | string | null
     serverUrl?: NullableStringFieldUpdateOperationsInput | string | null
     streamKey?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6603,7 +6603,7 @@ export namespace Prisma {
   export type StreamCreateManyInput = {
     id?: string
     title: string
-    thumbnainUrl?: string | null
+    thumbnailUrl?: string | null
     ingressId?: string | null
     serverUrl?: string | null
     streamKey?: string | null
@@ -6616,7 +6616,7 @@ export namespace Prisma {
   export type StreamUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    thumbnainUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     ingressId?: NullableStringFieldUpdateOperationsInput | string | null
     serverUrl?: NullableStringFieldUpdateOperationsInput | string | null
     streamKey?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6628,7 +6628,7 @@ export namespace Prisma {
   export type StreamUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    thumbnainUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     ingressId?: NullableStringFieldUpdateOperationsInput | string | null
     serverUrl?: NullableStringFieldUpdateOperationsInput | string | null
     streamKey?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6993,7 +6993,7 @@ export namespace Prisma {
   export type StreamCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    thumbnainUrl?: SortOrder
+    thumbnailUrl?: SortOrder
     ingressId?: SortOrder
     serverUrl?: SortOrder
     streamKey?: SortOrder
@@ -7006,7 +7006,7 @@ export namespace Prisma {
   export type StreamMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    thumbnainUrl?: SortOrder
+    thumbnailUrl?: SortOrder
     ingressId?: SortOrder
     serverUrl?: SortOrder
     streamKey?: SortOrder
@@ -7019,7 +7019,7 @@ export namespace Prisma {
   export type StreamMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    thumbnainUrl?: SortOrder
+    thumbnailUrl?: SortOrder
     ingressId?: SortOrder
     serverUrl?: SortOrder
     streamKey?: SortOrder
@@ -7522,7 +7522,7 @@ export namespace Prisma {
   export type StreamCreateWithoutUserInput = {
     id?: string
     title: string
-    thumbnainUrl?: string | null
+    thumbnailUrl?: string | null
     ingressId?: string | null
     serverUrl?: string | null
     streamKey?: string | null
@@ -7534,7 +7534,7 @@ export namespace Prisma {
   export type StreamUncheckedCreateWithoutUserInput = {
     id?: string
     title: string
-    thumbnainUrl?: string | null
+    thumbnailUrl?: string | null
     ingressId?: string | null
     serverUrl?: string | null
     streamKey?: string | null
@@ -7620,7 +7620,7 @@ export namespace Prisma {
   export type StreamUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    thumbnainUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     ingressId?: NullableStringFieldUpdateOperationsInput | string | null
     serverUrl?: NullableStringFieldUpdateOperationsInput | string | null
     streamKey?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7632,7 +7632,7 @@ export namespace Prisma {
   export type StreamUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    thumbnainUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnailUrl?: NullableStringFieldUpdateOperationsInput | string | null
     ingressId?: NullableStringFieldUpdateOperationsInput | string | null
     serverUrl?: NullableStringFieldUpdateOperationsInput | string | null
     streamKey?: NullableStringFieldUpdateOperationsInput | string | null

@@ -47,7 +47,7 @@ model SocialLink {
 model Stream {
   id           String   @id @default(uuid())
   title        String
-  thumbnainUrl String?  @map("thumbnail_url")
+  thumbnailUrl String?  @map("thumbnail_url")
   ingressId    String?  @unique @map("ingress_id")
   serverUrl    String?  @map("server_url")
   streamKey    String?  @map("stream_key")

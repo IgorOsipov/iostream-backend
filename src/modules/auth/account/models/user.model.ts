@@ -2,6 +2,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import type { User } from '@/prisma/generated';
 import { SocialLinkModel } from '@/src/modules/auth/profile/models/social-link.model';
+import { StreamModel } from '@/src/modules/stream/models/stream.model';
 
 @ObjectType()
 export class UserModel implements User {
@@ -41,8 +42,11 @@ export class UserModel implements User {
   @Field(() => Boolean)
   public isDeactivated: boolean;
 
-  @Field(() => [SocialLinkModel], { nullable: true })
-  public socialLinks: SocialLinkModel[] | null;
+  @Field(() => [SocialLinkModel])
+  public socialLinks: SocialLinkModel[];
+
+  @Field(() => StreamModel)
+  public stream: StreamModel;
 
   @Field(() => Date, { nullable: true })
   public deactivatedAt: Date | null;
