@@ -29,7 +29,7 @@ export class WebhookService {
       });
     }
 
-    if (event.event === 'ingress_stopped') {
+    if (event.event === 'ingress_ended') {
       await this.prismaService.stream.update({
         where: {
           ingressId: event.ingressInfo?.ingressId
