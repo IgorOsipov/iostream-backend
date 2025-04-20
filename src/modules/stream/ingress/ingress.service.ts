@@ -46,8 +46,10 @@ export class IngressService {
       options
     );
 
-    if (!ingress || !ingress.url || ingress.streamKey) {
-      throw new BadRequestException('Failed to create incoming stream');
+    if (!ingress?.url || !ingress?.streamKey || !ingress?.ingressId) {
+      throw new BadRequestException(
+        'Failed to create incoming stream: missing required fields'
+      );
     }
 
     await this.prismaService.stream.update({
