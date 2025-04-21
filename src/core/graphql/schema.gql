@@ -7,6 +7,17 @@ type AuthModel {
   user: UserModel
 }
 
+type CategoryModel {
+  createdAt: DateTime!
+  description: String
+  id: String!
+  slug: String!
+  streams: [StreamModel!]!
+  thumbnailUrl: String!
+  title: String!
+  updatedAt: DateTime!
+}
+
 input ChangeEmailInput {
   email: String!
 }
@@ -167,6 +178,8 @@ input SocialLinkOrderInput {
 }
 
 type StreamModel {
+  category: CategoryModel!
+  categoryId: String!
   createdAt: DateTime!
   id: ID!
   ingressId: String
