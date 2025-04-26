@@ -4,15 +4,17 @@ import {
   NotFoundException
 } from '@nestjs/common';
 
+import { User } from '@/prisma/generated';
 import { PrismaService } from '@/src/core/prisma/prisma.service';
 
+import { ChangeChatSettingsInput } from './inputs/change-chat-settings.input';
 import { SendMessageInput } from './inputs/send-message.input';
 
 @Injectable()
 export class ChatService {
   public constructor(private readonly prismaService: PrismaService) {}
 
-  public async findMessagesByStream(streamId: string) {
+  public async findByStream(streamId: string) {
     const messages = await this.prismaService.chatMessage.findMany({
       where: {
         streamId
@@ -28,12 +30,8 @@ export class ChatService {
     return messages;
   }
 
-  public async sendMessage(
-    userId: string,
-    streamId: string,
-    input: SendMessageInput
-  ) {
-    const { text } = input;
+  public async sendMessage(userId: string, input: SendMessageInput) {
+    const { text, streamId } = input;
     const stream = await this.prismaService.stream.findUnique({
       where: {
         id: streamId
@@ -48,11 +46,30 @@ export class ChatService {
       throw new BadRequestException('Stream offline');
     }
 
-    await this.prismaService.chatMessage.create({
+    const message = await this.prismaService.chatMessage.create({
       data: {
         text,
         user: { connect: { id: userId } },
         stream: { connect: { id: streamId } }
+      },
+      include: {
+        stream: true
+      }
+    });
+
+    return message;
+  }
+
+  public async changeSettings(user: User, input: ChangeChatSettingsInput) {
+    const { isChatEnabled, isChatFollowersOnly, isChatPremiumFollowersOnly } =
+      input;
+
+    await this.prismaService.stream.update({
+      where: { userId: user.id },
+      data: {
+        isChatEnabled,
+        isChatFollowersOnly,
+        isChatPremiumFollowersOnly
       }
     });
 
