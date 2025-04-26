@@ -28,6 +28,15 @@ export class StreamModel implements Stream {
   @Field(() => Boolean)
   public isLive: boolean;
 
+  @Field(() => Boolean)
+  public isChatEnabled: boolean;
+
+  @Field(() => Boolean)
+  public isChatFollowersOnly: boolean;
+
+  @Field(() => Boolean)
+  public isChatPremiumFollowersOnly: boolean;
+
   @Field(() => String)
   public userId: string;
 

@@ -186,6 +186,9 @@ type StreamModel {
   createdAt: DateTime!
   id: ID!
   ingressId: String
+  isChatEnabled: Boolean!
+  isChatFollowersOnly: Boolean!
+  isChatPremiumFollowersOnly: Boolean!
   isLive: Boolean!
   serverUrl: String
   streamKey: String

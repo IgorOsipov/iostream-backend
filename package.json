@@ -1,8 +1,8 @@
 {
   "name": "iostream-backend",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "version": "1",
+  "description": "My pet project of streaming platform",
+  "author": "https://github.com/IgorOsipov",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
